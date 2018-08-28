@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="/Default.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="VerismoTest.Website.Default" %>
+﻿<%@ Page Language="C#" MasterPageFile="/Default.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="VerismoTest.Website.DefaultPage" %>
 
 <asp:Content ContentPlaceHolderID="cphContent" runat="server">
 	

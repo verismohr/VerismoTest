@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Web.UI.WebControls;
 using VerismoTest.BLL;
 
 namespace VerismoTest.Website
 {
-	public partial class Default : PageBaseClass
+	public partial class DefaultPage : PageBaseClass
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			// ---------------------------------------------
+
+			// Alternativ #1
+
 			// Kodexempel för "Task" (CRUD)
-			
+
 			// Skapa ny Task (Create)
 			Task task1 = new Task();
 			task1.Name = "Mata katten";
@@ -29,6 +29,21 @@ namespace VerismoTest.Website
 
 			// Ta bort task (Delete)
 			task2.Delete();
+
+			// ---------------------------------------------
+
+			// Alternativ #2
+
+			// Tasks REST API
+
+			// Retrieve (All)	-> GET		-> http://localhost:63935/api/tasks
+			// Delete			-> DELETE	-> http://localhost:63935/api/tasks/<guid>
+			// Retrieve (One)	-> GET		-> http://localhost:63935/api/tasks/<guid>
+			// Create			-> POST		-> http://localhost:63935/api/tasks + BODY
+			// Update (Modify)	-> PATCH	-> http://localhost:63935/api/tasks + BODY
+			// Update (Replace)	-> PUT		-> http://localhost:63935/api/tasks + BODY
+
+			// ---------------------------------------------
 		}
 	}
 }

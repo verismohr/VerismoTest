@@ -75,17 +75,19 @@ namespace VerismoTest.DAL
 
 			if (!File.Exists(dataFileName))
 			{
-				throw new Exception(id.ToString("N") + " hittades inte!");
+				item = default(T);
 			}
-
-			FileStream stream = File.OpenRead(dataFileName);
-			DataContractSerializer serializer = new DataContractSerializer(typeof(T));
-			dynamic dataContract = serializer.ReadObject(stream);
-			stream.Close();
-
-			foreach (PropertyInfo propertyInfo in typeof(T).GetProperties())
+			else
 			{
-				propertyInfo.SetValue(item, propertyInfo.GetValue(dataContract, null), null);
+				FileStream stream = File.OpenRead(dataFileName);
+				DataContractSerializer serializer = new DataContractSerializer(typeof(T));
+				dynamic dataContract = serializer.ReadObject(stream);
+				stream.Close();
+
+				foreach (PropertyInfo propertyInfo in typeof(T).GetProperties())
+				{
+					propertyInfo.SetValue(item, propertyInfo.GetValue(dataContract, null), null);
+				}
 			}
 		}
 

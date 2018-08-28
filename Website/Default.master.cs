@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace VerismoTest.Website
 {
-	public partial class Default : MasterPageBaseClass
+	public partial class DefaultMaster : MasterPageBaseClass
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

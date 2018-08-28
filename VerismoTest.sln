@@ -1,9 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{8AB8F364-E567-44E0-B005-B74F4BD568EB}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		ProjectReferences = "{28545E9C-D6F5-4253-B032-DDC77B18DB1E}|VerismoTest.BLL.dll;{E108987B-7939-4BA8-A016-99894E5F22BE}|VerismoTest.DAL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Website"
 		Debug.AspNetCompiler.PhysicalPath = "Website\"
@@ -21,6 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{8AB
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "63935"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "Website\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
