@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using VerismoTest.BLL;
 
+[EnableCors(origins: "*", headers: "*", methods: "*")]
 public class TasksController : ApiController
 {
 	/// <summary>
