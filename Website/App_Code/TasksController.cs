@@ -4,12 +4,10 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using VerismoTest.BLL;
 
-[RoutePrefix("api/tasks")]
-[EnableCors(origins: "*", headers: "*", methods: "*")]
+[RoutePrefix("api/tasks"), EnableCors(origins: "*", headers: "*", methods: "*")]
 public class TasksController : ApiController
 {
-	[HttpPost]
-	[Route("")]
+	[HttpPost, Route("")]
 	public IHttpActionResult Create([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
@@ -25,8 +23,7 @@ public class TasksController : ApiController
 		}
 	}
 
-	[HttpGet]
-	[Route("{id:guid}")]
+	[HttpGet, Route("{id:guid}")]
 	public IHttpActionResult RetrieveOne([FromUri]Guid id)
 	{
 		Task task = new Task(id);
@@ -41,15 +38,13 @@ public class TasksController : ApiController
 		}
 	}
 
-	[HttpGet]
-	[Route("")]
+	[HttpGet, Route("")]
 	public IHttpActionResult RetrieveAll()
 	{
 		return Ok(Task.RetrieveAll());
 	}
 
-	[HttpPatch]
-	[Route("")]
+	[HttpPatch, Route("")]
 	public IHttpActionResult Modify([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
@@ -68,8 +63,7 @@ public class TasksController : ApiController
 		}
 	}
 
-	[HttpPut]
-	[Route("")]
+	[HttpPut, Route("")]
 	public IHttpActionResult Replace([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
@@ -87,8 +81,7 @@ public class TasksController : ApiController
 		}
 	}
 
-	[HttpDelete]
-	[Route("{id:guid}")]
+	[HttpDelete, Route("{id:guid}")]
 	public IHttpActionResult Delete([FromUri]Guid id)
 	{
 		Task task = new Task(id);
@@ -104,8 +97,7 @@ public class TasksController : ApiController
 		}
 	}
 
-	[HttpGet]
-	[Route("{startDate:datetime}/{endDate:datetime}")]
+	[HttpGet, Route("{startDate:datetime}/{endDate:datetime}")]
 	public IHttpActionResult BetweenDates([FromUri]DateTime startDate, [FromUri]DateTime endDate)
 	{
 		return Ok(Task.RetrieveAll().Where(task => task.DueDate >= startDate && task.DueDate <= endDate));
