@@ -1,15 +1,16 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using VerismoTest.BLL;
 
+[RoutePrefix("api/tasks")]
 [EnableCors(origins: "*", headers: "*", methods: "*")]
 public class TasksController : ApiController
 {
-	/// <summary>
-	/// Create
-	/// </summary>
-	public IHttpActionResult Post(Task task)
+	[HttpPost]
+	[Route("")]
+	public IHttpActionResult Create([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
 
@@ -24,10 +25,9 @@ public class TasksController : ApiController
 		}
 	}
 
-	/// <summary>
-	/// Retrieve (One)
-	/// </summary>
-	public IHttpActionResult Get(Guid id)
+	[HttpGet]
+	[Route("{id:guid}")]
+	public IHttpActionResult RetrieveOne([FromUri]Guid id)
 	{
 		Task task = new Task(id);
 
@@ -41,18 +41,16 @@ public class TasksController : ApiController
 		}
 	}
 
-	/// <summary>
-	/// Retrieve (All)
-	/// </summary>
-	public IHttpActionResult Get()
+	[HttpGet]
+	[Route("")]
+	public IHttpActionResult RetrieveAll()
 	{
 		return Ok(Task.RetrieveAll());
 	}
 
-	/// <summary>
-	/// Update (Modify)
-	/// </summary>
-	public IHttpActionResult Patch(Task task)
+	[HttpPatch]
+	[Route("")]
+	public IHttpActionResult Modify([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
 
@@ -66,14 +64,13 @@ public class TasksController : ApiController
 			existingTask.DueDate = task.DueDate;
 			existingTask.Description = task.Description;
 			existingTask.Save();
-			return Ok(task);
+			return Ok(existingTask);
 		}
 	}
 
-	/// <summary>
-	/// Update (Replace)
-	/// </summary>
-	public IHttpActionResult Put(Task task)
+	[HttpPut]
+	[Route("")]
+	public IHttpActionResult Replace([FromBody]Task task)
 	{
 		Task existingTask = new Task(task.ID);
 
@@ -90,10 +87,9 @@ public class TasksController : ApiController
 		}
 	}
 
-	/// <summary>
-	/// Delete
-	/// </summary>
-	public IHttpActionResult Delete(Guid id)
+	[HttpDelete]
+	[Route("{id:guid}")]
+	public IHttpActionResult Delete([FromUri]Guid id)
 	{
 		Task task = new Task(id);
 
@@ -106,5 +102,12 @@ public class TasksController : ApiController
 			task.Delete();
 			return Ok(task);
 		}
+	}
+
+	[HttpGet]
+	[Route("{startDate:datetime}/{endDate:datetime}")]
+	public IHttpActionResult BetweenDates([FromUri]DateTime startDate, [FromUri]DateTime endDate)
+	{
+		return Ok(Task.RetrieveAll().Where(task => task.DueDate >= startDate && task.DueDate <= endDate));
 	}
 }

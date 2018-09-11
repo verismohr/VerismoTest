@@ -10,7 +10,6 @@
 		GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml"));
 		GlobalConfiguration.Configuration.EnableCors();
 		GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
-		GlobalConfiguration.Configuration.Routes.MapHttpRoute(name: "api", routeTemplate: "api/{controller}/{id}", defaults: new { id = System.Web.Http.RouteParameter.Optional });
 		GlobalConfiguration.Configuration.EnsureInitialized();
 	}
 
