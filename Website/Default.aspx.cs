@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using VerismoTest.BLL;
 
 namespace Website
@@ -41,12 +36,12 @@ namespace Website
 
             // Tasks REST API
 
-            // Retrieve (All)	-> GET		-> http://localhost:63935/api/tasks
-            // Delete			-> DELETE	-> http://localhost:63935/api/tasks/<guid>
-            // Retrieve (One)	-> GET		-> http://localhost:63935/api/tasks/<guid>
-            // Create			-> POST		-> http://localhost:63935/api/tasks + BODY
-            // Update (Modify)	-> PATCH	-> http://localhost:63935/api/tasks + BODY
-            // Update (Replace)	-> PUT		-> http://localhost:63935/api/tasks + BODY
+            // Retrieve (All)	-> GET		-> http://localhost:<port>/api/tasks
+            // Retrieve (One)	-> GET		-> http://localhost:<port>/api/tasks/<guid>
+            // Delete			-> DELETE	-> http://localhost:<port>/api/tasks/<guid>
+            // Create			-> POST		-> http://localhost:<port>/api/tasks + BODY
+            // Update (Modify)	-> PATCH	-> http://localhost:<port>/api/tasks + BODY
+            // Update (Replace)	-> PUT		-> http://localhost:<port>/api/tasks + BODY
 
             // ---------------------------------------------
         }
