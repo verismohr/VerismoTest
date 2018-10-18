@@ -1,7 +1,1 @@
-# Getting Started #
-
-1. Rebuild Solution.
-
-2. Type `Update-Package -reinstall` in Package Manager Console.
-
-3. All done!
+[![Build Status](https://dev.azure.com/verismosystems/VerismoTest/_apis/build/status/verismohr.VerismoTest)](https://dev.azure.com/verismosystems/VerismoTest/_build/latest?definitionId=1)
